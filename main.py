@@ -1,6 +1,9 @@
 class enigma:
     def __init__(self, starting_pos, rotors, ringsettings, plugboard):
-        pass
+        self.starting_pos = starting_pos
+        self.rotors = rotors
+        self.ringsettings = ringsettings
+        self.plugboard = plugboard
 
     def encrypt(self, stting):
         """
@@ -25,6 +28,8 @@ class rotor:
     def __init__(self, keys, notch, starting_pos, offset):
         self.keys = keys  # this is an array/list
         self.notch = notch
+        self.starting_pos = starting_pos
+        self.offset = offset
         # Dont forget to implment the starting position and the offset
 
     def advance(self):
