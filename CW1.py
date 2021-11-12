@@ -1,7 +1,7 @@
 alphabet_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
             'U', 'V', 'W', 'X', 'Y', 'Z']
 
-# hello
+# The various rotors sequence
 rotor1 = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O', 'W', 'Y',
         'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
 
@@ -69,7 +69,7 @@ class Reflector:
 
 def caeser_shift(str, amount):
     output = ""
-
+#Function to shift the rotor when a letter is entered
     for i in range(len(str)):
         c = str[i]
         code = ord(c)
