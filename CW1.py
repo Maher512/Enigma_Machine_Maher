@@ -1,59 +1,7 @@
 alphabet_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
             'U', 'V', 'W', 'X', 'Y', 'Z']
 
-# inputs:
-rotors = [1,2,3]
-while True:
-    input_user = ""
-    input_user = input("enter rotor numbers in this sequence 'slow, medium, fast' : ").split(",")
-    input_user = [x.strip() for x in input_user]
-    if len(input_user) != 3:
-        print("INVALID ROTOR NUMBERS!!")
-        continue
-    for i, rot in enumerate(input_user):
-        if rot not in ("1","2","3","4","5"):
-            print("INVALID ROTOR NUMBERS!!")
-            continue
-        rotors[i] = int(rot)
-    break
-
-ring_settings = "ABC"
-while True:
-    ring_settings = ""
-    input_user = ""
-    input_user = input("enter ring settings(letter) in this sequence, 'slow, medium, fast', ex: 'A,B,C' : ").split(",")
-    input_user = [x.strip() for x in input_user]
-    if len(input_user) != 3:
-        print("INVALID RING SETTINGS!!")
-        continue
-    for i, rot in enumerate(input_user):
-        if rot not in alphabet_list:
-            print("INVALID RING SETTINGS!!")
-            continue
-        ring_settings += rot
-    break
-ring_positions = "DEF"
-while True:
-    ring_positions = ""
-    input_user = ""
-    input_user = input("enter ring positions(letter) in this sequence 'slow, medium, fast', ex: 'A,B,C' : ").split(",")
-    input_user = [x.strip() for x in input_user]
-    if len(input_user) != 3:
-        print("INVALID RING POSITIONS!!")
-        continue
-    for i, rot in enumerate(input_user):
-        if rot not in alphabet_list:
-            print("INVALID RING POSITIONS!!")
-            continue
-        ring_positions += rot
-    break
-
-input_text = input("Enter text ro encrypt/decrypt: ").upper().strip()
-
-
 # hello
-
-
 rotor1 = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O', 'W', 'Y',
         'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
 
@@ -94,9 +42,6 @@ class PlugBoard:
 #swapped_letters = keyboard.swap_pairs(letters)
 #print("exited plugboard as: ", swapped_letters)
 
-
-
-
 class Reflector:
     def __init__(self):
         self.reflector_list = ['Y', 'R', 'U', 'H', 'Q', 'S', 'L', 'D', 'P', 'X', 'N', 'G', 'O', 'K', 'M', 'I', 'E', 'B', 'F', 'Z',
@@ -104,14 +49,12 @@ class Reflector:
     reflector_dict = {"A": "Y", "Y": "A", "B": "R", "R": "B", "C": "U", "U": "C", "D": "H", "H": "D", "E": "Q", "Q": "E",
                 "F": "S", "S": "F", "G": "L", "L": "G", "I": "P", "P": "I", "J": "X", "X": "J", "K": "N", "N": "K",
                 "M": "O", "O": "M", "T": "Z", "Z": "T", "V": "W", "W": "V"}
-
     
     def reflect_pairs(self, letter):
         if letter in alphabet_list:
             return self.reflector_dict[letter]
         else:
             return letter
-
 
 #keyboard = PlugBoard("AB CD EF HI JK")
 #letters = "A DOG EATS CARROT"
@@ -135,9 +78,6 @@ def caeser_shift(str, amount):
         output += c
     
     return output
-
-
-
 
 class Rotor:
     def __init__(self, rotor_number, ring_settings,ring_position):
@@ -233,10 +173,57 @@ def encode(input_text):
 
     return encoded_message
 
+# main program:
 
+rotors = [1, 2, 3]
+
+while True:
+    input_user = input("Enter rotor numbers in this sequence 'slow, medium, fast' : ").split(",")
+    input_user = [x.strip() for x in input_user]
+    if len(input_user) != 3:
+        print("INVALID ROTOR NUMBERS!!")
+        continue
+    for i, rot in enumerate(input_user):
+        if rot not in ("1", "2", "3", "4", "5"):
+            print("INVALID ROTOR NUMBERS!!")
+            continue
+        rotors[i] = int(rot)
+    break
+
+ring_settings = "ABC"
+while True:
+    ring_settings = ""
+    input_user = input("Enter ring settings(letter) in this sequence, 'slow, medium, fast', ex: 'A,B,C' : ").split(",")
+    input_user = [x.strip() for x in input_user]
+    if len(input_user) != 3:
+        print("INVALID RING SETTINGS!!")
+        continue
+    for i, rot in enumerate(input_user):
+        if rot not in alphabet_list:
+            print("INVALID RING SETTINGS!!")
+            continue
+        ring_settings += rot
+    break
+ring_positions = "DEF"
+while True:
+    ring_positions = ""
+    input_user = input("Enter ring positions(letter) in this sequence 'slow, medium, fast', ex: 'A,B,C' : ").split(",")
+    input_user = [x.strip() for x in input_user]
+    if len(input_user) != 3:
+        print("INVALID RING POSITIONS!!")
+        continue
+    for i, rot in enumerate(input_user):
+        if rot not in alphabet_list:
+            print("INVALID RING POSITIONS!!")
+            continue
+        ring_positions += rot
+    break
+
+input_text = input("Enter text to encrypt/decrypt: ").upper().strip()
 
 output = encode(input_text)
 print("Encrypted message: ", output)
+
     
 
 
