@@ -1,4 +1,6 @@
 # Enigma_Machine_Maher
 Complete Enigma Machine
-By: Mohamed Maher
+<p align="center">
+  <b>Created by: Mohamed Hamed Maher</b>
+</p>
 
